@@ -2,10 +2,13 @@
     "compilerOptions": {
         "outDir": "./bin",
         "sourceMap": true,
-        "target": "es6",
+        "target": "ESNext",
         "allowJs": true,
-        "noEmit": true,
-        "isolatedModules": true
+        "isolatedModules": true,
+        "forceConsistentCasingInFileNames": true,
+        "removeComments": true
     },
-    "include": ["./src/**/*"]
+    "include": [
+        "./src/**/*"
+    ]
 }
