@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "outDir": "./bin",
+        "sourceMap": true,
+        "target": "es6",
+        "strict": true,
+        "allowJs": true,
+        "noEmit": true,
+        "isolatedModules": true
+    },
+    "include": ["./src/**/*"]
+}

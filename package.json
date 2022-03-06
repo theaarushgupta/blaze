@@ -1,0 +1,30 @@
+{
+    "name": "panda",
+    "version": "0.0.1",
+    "description": "a fast, expressive, and intuitive web-based game engine",
+    "main": "./src/panda.js",
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "build": "npx gulp"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/theaarushgupta/panda.git"
+    },
+    "author": "Aarush Gupta",
+    "license": "AGPL-3.0-or-later",
+    "bugs": {
+        "url": "https://github.com/theaarushgupta/panda/issues"
+    },
+    "homepage": "https://panda.js.org",
+    "devDependencies": {
+        "gulp": "^4.0.0",
+        "gulp-sourcemaps": "^3.0.0",
+        "gulp-typescript": "^6.0.0-alpha.1",
+        "gulp-uglify": "^3.0.2",
+        "typescript": "^4.6.2",
+        "vinyl-buffer": "^1.0.1"
+    }
+}
