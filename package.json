@@ -2,7 +2,7 @@
     "name": "panda",
     "version": "0.0.1",
     "description": "a fast, expressive, and intuitive web-based game engine",
-    "main": "./src/panda.js",
+    "main": "./bin/panda.js",
     "directories": {
         "test": "tests"
     },
