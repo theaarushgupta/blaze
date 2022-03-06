@@ -1,8 +1,8 @@
-import { Shader } from "./shader";
+import * as shader from "./shader";
 
 interface Panda {
     state: State;
-    shader: Shader;
+    shader: shader.Shader;
 }
 
 class Panda {
@@ -10,7 +10,7 @@ class Panda {
         this.state = {
             gl: app.getContext("webgl2")
         };
-        this.shader = new Shader(this.state);
+        this.shader = new shader.Shader(this.state);
         this.setup();
     }
 
