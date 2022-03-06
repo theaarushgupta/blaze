@@ -7,6 +7,20 @@ class Shader {
         this.state = state;
     }
 
+    load(path: string): string | null {
+        let request = null;
+        request = new XMLHttpRequest();
+        request.open("GET", path, false);
+        try {
+            request.send();
+        } catch (error) {
+            throw new Error(`failed to load shader from ${path}`);
+            return null;
+        }
+        request = request.responseText;
+        return request;
+    }
+
     compile(type: number, source: string): WebGLShader | null {
         let shader = this.state.gl.createShader(type);
         this.state.gl.shaderSource(shader, source);
