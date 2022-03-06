@@ -1,3 +1,3 @@
 interface State {
-    gl: WebGL2RenderingContext | null
+    gl: WebGL2RenderingContext | null;
 }
