@@ -1,12 +1,15 @@
 {
     "compilerOptions": {
-        "outDir": "./bin",
+        "outDir": "./dist",
         "sourceMap": true,
         "target": "ESNext",
         "allowJs": true,
         "isolatedModules": true,
         "forceConsistentCasingInFileNames": true,
         "removeComments": true
+    },
+    "watchOptions": {
+        "excludeDirectories": ["**/node_modules", "dist"]
     },
     "include": [
         "./src/**/*"

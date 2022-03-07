@@ -13,10 +13,11 @@
     "license": "AGPL-3.0-or-later",
     "author": "Aarush Gupta",
     "type": "module",
-    "exports": "./bin/blaze.js",
+    "exports": "./dist/blaze.js",
     "scripts": {
         "build": "tsc",
-        "clean": "rm -rf ./bin/"
+        "clean": "rm -rf ./dist/",
+        "watch": "tsc --watch"
     },
     "devDependencies": {
         "typescript": "^4.6.2"
