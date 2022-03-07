@@ -3,6 +3,7 @@
         "outDir": "./dist",
         "sourceMap": true,
         "declaration": true,
+        "declarationDir": "./",
         "target": "ESNext",
         "allowJs": true,
         "isolatedModules": true,
@@ -14,5 +15,8 @@
     },
     "include": [
         "./src/**/*"
+    ],
+    "exclude": [
+        "./dist/"
     ]
 }
