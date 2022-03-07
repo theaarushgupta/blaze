@@ -4,11 +4,10 @@ const blaze = new Blaze(
     document.getElementById("app")
 );
 
-let vertexSource = blaze.shader.load("../res/shaders/vertex.glsl");
-let fragmentSource = blaze.shader.load("../res/shaders/fragment.glsl");
-let vertex = blaze.shader.compile(blaze.state.gl.VERTEX_SHADER, vertexSource);
-let fragment = blaze.shader.compile(blaze.state.gl.FRAGMENT_SHADER, fragmentSource);
-let program = blaze.shader.link(vertex, fragment);
+let program = blaze.shader.load(
+    "../res/shaders/vertex.glsl",
+    "../res/shaders/fragment.glsl"
+)
 
 blaze.draw(program, [
     0, 0,

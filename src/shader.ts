@@ -9,7 +9,16 @@ class Shader {
         this.state = state;
     }
 
-    load(path: string): string | null {
+    load(vertex: string, fragment: string): WebGLProgram | null {
+        let vertex_ = this.#fetch(vertex);
+        let fragment_ = this.#fetch(fragment);
+        let vertexCompiled = this.compile(this.state.gl.VERTEX_SHADER, vertex_);
+        let fragmentCompiled = this.compile(this.state.gl.FRAGMENT_SHADER, fragment_);
+        let program = this.link(vertexCompiled, fragmentCompiled);
+        return program;
+    }
+
+    #fetch(path: string): string | null {
         let request = null;
         request = new XMLHttpRequest();
         request.open("GET", path, false);
