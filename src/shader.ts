@@ -16,7 +16,7 @@ class Shader {
         try {
             request.send();
         } catch (error) {
-            throw new Error(`failed to load shader from ${path}`);
+            console.log(`[error] failed to load shader from ${path}`);
             return null;
         }
         request = request.responseText;
@@ -43,16 +43,16 @@ class Shader {
         this.state.gl.attachShader(program, vertex);
         this.state.gl.attachShader(program, fragment);
         this.state.gl.linkProgram(program);
-        let success = this.state.gl.getShaderParameter(
+        let success = this.state.gl.getProgramParameter(
             program,
             this.state.gl.LINK_STATUS
         )
         if (success) {
+            this.state.gl.useProgram(program);
             return program;
         }
         console.log(`[error] cannot link shaders ${this.state.gl.getProgramInfoLog(program)}`)
         this.state.gl.deleteProgram(program);
-        
     }
 };
 

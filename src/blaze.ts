@@ -6,7 +6,6 @@ import { State } from "./state.js";
 interface Blaze {
     state: State;
     shader: shader.Shader;
-    buffer: buffer.Buffer;
 }
 
 class Blaze {
@@ -22,6 +21,12 @@ class Blaze {
     clear(): void {
         this.state.gl.clearColor(0.0, 0.0, 0.0, 1.0);
         this.state.gl.clear(this.state.gl.COLOR_BUFFER_BIT);
+    }
+
+    draw(program: WebGLProgram, positions: number[]): void {
+        let buffer_ = new buffer.Buffer(this.state, program);
+        buffer_.allocate(positions)
+        this.state.gl.drawArrays(this.state.gl.TRIANGLES, 0, 3);
     }
 };
 
