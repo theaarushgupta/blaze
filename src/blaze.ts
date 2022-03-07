@@ -1,6 +1,8 @@
 import * as shader from "./shader.js";
 import * as buffer from "./buffer.js";
 
+import { State } from "./state.js";
+
 interface Blaze {
     state: State;
     shader: shader.Shader;
@@ -18,7 +20,7 @@ class Blaze {
     }
 
     clear(): void {
-        this.state.gl.clearColor(0.0, 0.8, 0.0, 1.0); // green
+        this.state.gl.clearColor(0.0, 0.0, 0.0, 1.0);
         this.state.gl.clear(this.state.gl.COLOR_BUFFER_BIT);
     }
 };

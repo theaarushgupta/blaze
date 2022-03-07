@@ -1,3 +1,5 @@
+import { State } from "./state.js";
+
 interface Buffer {
     state: State;
     position: number;

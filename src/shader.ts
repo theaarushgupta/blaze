@@ -1,3 +1,5 @@
+import { State } from "./state.js";
+
 interface Shader {
     state: State;
 }
