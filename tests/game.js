@@ -1,5 +1,5 @@
-import * as panda from "../bin/panda.js";
+import * as blaze from "../bin/blaze.js";
 
-const panda_ = new panda.Panda(
+const blaze_ = new blaze.Blaze(
     document.getElementById("app")
 );

@@ -1,13 +1,13 @@
 import * as shader from "./shader.js";
 import * as buffer from "./buffer.js";
 
-interface Panda {
+interface Blaze {
     state: State;
     shader: shader.Shader;
     buffer: buffer.Buffer;
 }
 
-class Panda {
+class Blaze {
     constructor(app: HTMLCanvasElement) {
         this.state = {
             gl: app.getContext("webgl2")
@@ -23,4 +23,4 @@ class Panda {
     }
 };
 
-export { Panda }
+export { Blaze }

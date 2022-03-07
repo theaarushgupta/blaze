@@ -1,19 +1,19 @@
 {
-    "name": "@theaarushgupta/panda",
+    "name": "@theaarushgupta/blaze",
     "version": "0.0.1",
     "description": "a fast, expressive, and intuitive web-based game engine",
-    "homepage": "https://github.com/theaarushgupta/panda#readme",
+    "homepage": "https://github.com/theaarushgupta/blaze#readme",
     "bugs": {
-        "url": "https://github.com/theaarushgupta/panda/issues"
+        "url": "https://github.com/theaarushgupta/blaze/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/theaarushgupta/panda.git"
+        "url": "git+https://github.com/theaarushgupta/blaze.git"
     },
     "license": "AGPL-3.0-or-later",
     "author": "Aarush Gupta",
     "type": "module",
-    "exports": "./bin/panda.js",
+    "exports": "./bin/blaze.js",
     "scripts": {
         "build": "tsc",
         "clean": "rm -rf ./bin/"
