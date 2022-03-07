@@ -1,25 +1,23 @@
 {
-    "name": "panda",
+    "name": "@theaarushgupta/panda",
     "version": "0.0.1",
     "description": "a fast, expressive, and intuitive web-based game engine",
-    "main": "./bin/panda.js",
-    "directories": {
-        "test": "tests"
-    },
-    "scripts": {
-        "build": "npx tsc",
-        "clean": "rm -rf ./bin"
+    "homepage": "https://github.com/theaarushgupta/panda#readme",
+    "bugs": {
+        "url": "https://github.com/theaarushgupta/panda/issues"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/theaarushgupta/panda.git"
     },
-    "author": "Aarush Gupta",
     "license": "AGPL-3.0-or-later",
-    "bugs": {
-        "url": "https://github.com/theaarushgupta/panda/issues"
+    "author": "Aarush Gupta",
+    "type": "module",
+    "exports": "./bin/panda.js",
+    "scripts": {
+        "build": "tsc",
+        "clean": "rm -rf ./bin/"
     },
-    "homepage": "https://panda.js.org",
     "devDependencies": {
         "typescript": "^4.6.2"
     }
