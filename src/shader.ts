@@ -1,5 +1,10 @@
 import { State } from "./state.js";
 
+interface LoadPaths {
+    vertex: string;
+    fragment: string;
+}
+
 interface Shader {
     state: State;
 }
@@ -9,7 +14,9 @@ class Shader {
         this.state = state;
     }
 
-    load(vertex: string, fragment: string): WebGLProgram | null {
+    load(paths: LoadPaths): WebGLProgram | null {
+        let vertex = paths.vertex;
+        let fragment = paths.fragment;
         let vertex_ = this.#fetch(vertex);
         let fragment_ = this.#fetch(fragment);
         let vertexCompiled = this.compile(this.state.gl.VERTEX_SHADER, vertex_);
