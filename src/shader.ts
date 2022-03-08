@@ -62,7 +62,6 @@ class Shader {
             this.state.gl.LINK_STATUS
         )
         if (success) {
-            this.state.gl.useProgram(program);
             return program;
         }
         console.log(`[error] cannot link shaders ${this.state.gl.getProgramInfoLog(program)}`)

@@ -3,28 +3,28 @@ import { State } from "./state.js"
 class Texture {
     state: State;
     url: string;
+    #image: HTMLImageElement;
+    #buffer: WebGLBuffer;
+    #vertex: WebGLVertexArrayObject;
 
     constructor(state: State, url: string) {
         this.state = state;
         this.url = url;
-        let image = new Image();
-        image.src = this.url;
-        image.onload = () => {
+        this.#image = new Image();
+        this.#image.src = this.url;
+        this.#image.onload = () => {
             this.#bufferize();
-            this.#bind(image);
+            this.#bind(this.#image);
         }
     }
 
     #bufferize(): void {
         if (!this.state.program) { return null; }
-        let position = this.state.gl.getAttribLocation(this.state.program, "a_position");
         let textureCoordinates = this.state.gl.getAttribLocation(this.state.program, "a_texCoord");
-        let resolution = this.state.gl.getUniformLocation(this.state.program, "u_resolution");
-        let image_ = this.state.gl.getUniformLocation(this.state.program, "u_image");
-        let vertex = this.state.gl.createVertexArray();
-        this.state.gl.bindVertexArray(vertex);
-        let buffer = this.state.gl.createBuffer();
-        this.state.gl.bindBuffer(this.state.gl.ARRAY_BUFFER, buffer);
+        this.#vertex = this.state.gl.createVertexArray();
+        this.state.gl.bindVertexArray(this.#vertex);
+        this.#buffer = this.state.gl.createBuffer();
+        this.state.gl.bindBuffer(this.state.gl.ARRAY_BUFFER, this.#buffer);
         this.state.gl.bufferData(
             this.state.gl.ARRAY_BUFFER,
             new Float32Array([
@@ -75,6 +75,40 @@ class Texture {
             type,
             image
         );
+    }
+
+    apply(x: number, y: number): void {
+        this.state.gl.viewport(
+            0,
+            0,
+            this.state.gl.canvas.width,
+            this.state.gl.canvas.height
+        ); // covert from clip space to canvas pixels
+        this.state.gl.useProgram(this.state.program);
+        this.state.gl.bindVertexArray(this.#vertex);
+        let resolution = this.state.gl.getUniformLocation(this.state.program, "u_resolution");
+        let image_ = this.state.gl.getUniformLocation(this.state.program, "u_image");
+        this.state.gl.uniform2f(
+            resolution,
+            this.state.gl.canvas.width,
+            this.state.gl.canvas.height
+        );
+        this.state.gl.uniform1i(image_, 0);
+        this.state.gl.bindBuffer(this.state.gl.ARRAY_BUFFER, this.#buffer);
+        let xOpposite = x + this.state.gl.canvas.width;
+        let yOpposite = y + this.state.gl.canvas.height;
+        this.state.gl.bufferData(
+            this.state.gl.ARRAY_BUFFER,
+            new Float32Array([
+                x, y,
+                xOpposite, y,
+                x, yOpposite,
+                x, yOpposite,
+                xOpposite, y,
+                xOpposite, yOpposite,
+            ]),
+            this.state.gl.STATIC_DRAW
+        )
     }
 }
 

@@ -1,5 +1,5 @@
 import * as shader from "./shader.js";
-import * as buffer from "./buffer.js";
+import { Texture } from "./texture.js";
 
 import { State } from "./state.js";
 
@@ -21,12 +21,6 @@ class Blaze {
         this.state.gl.clearColor(0.0, 0.0, 0.0, 1.0);
         this.state.gl.clear(this.state.gl.COLOR_BUFFER_BIT);
     }
-
-    draw(program: WebGLProgram, positions: number[]): void {
-        let buffer_ = new buffer.Buffer(this.state, program);
-        buffer_.allocate(positions)
-        this.state.gl.drawArrays(this.state.gl.TRIANGLES, 0, 6);
-    }
 };
 
-export { Blaze }
+export { Blaze, Texture }
