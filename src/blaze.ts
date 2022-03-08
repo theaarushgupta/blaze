@@ -26,7 +26,7 @@ class Blaze {
     draw(program: WebGLProgram, positions: number[]): void {
         let buffer_ = new buffer.Buffer(this.state, program);
         buffer_.allocate(positions)
-        this.state.gl.drawArrays(this.state.gl.TRIANGLES, 0, 3);
+        this.state.gl.drawArrays(this.state.gl.TRIANGLES, 0, 6);
     }
 };
 

@@ -3,6 +3,7 @@ import { State } from "./state.js";
 interface Buffer {
     state: State;
     position: number;
+    resolution: WebGLUniformLocation;
 }
 
 class Buffer {
@@ -10,6 +11,7 @@ class Buffer {
         this.state = state
         if (program) {
             this.position = this.state.gl.getAttribLocation(program, "a_position");
+            this.resolution = this.state.gl.getUniformLocation(program, "u_resolution")
         } else {
             return null;
         }
@@ -44,6 +46,17 @@ class Buffer {
             stride,
             offset
         ); // binds ARRAY_BUFFER to attribute (frees for next use-case)
+        this.state.gl.viewport(
+            0,
+            0,
+            this.state.gl.canvas.width,
+            this.state.gl.canvas.height
+        );
+        this.state.gl.uniform2f(
+            this.resolution,
+            this.state.gl.canvas.width,
+            this.state.gl.canvas.height
+        ); // pass canvas resolution to convert from pixels to clip space
     }
 };
 
