@@ -2,8 +2,10 @@
 
 precision highp float; // high precision
 
-out vec4 color; // declare output
+uniform sampler2D u_image;
+
+out vec4 o_color; // declare output
 
 void main() {
-    color = vec4(1, 0, 0.5, 1); // reddish-purple
+    o_color = texture(u_image, v_textureCoordinates); // source color from texture
 }

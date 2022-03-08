@@ -9,7 +9,8 @@ class Blaze {
 
     constructor(app: HTMLCanvasElement) {
         this.state = {
-            gl: app.getContext("webgl2")
+            gl: app.getContext("webgl2"),
+            program: null
         };
         if ( this.state.gl == null ) { return; }
         this.clear();
