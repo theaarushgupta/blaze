@@ -3,12 +3,10 @@ import * as buffer from "./buffer.js";
 
 import { State } from "./state.js";
 
-interface Blaze {
+class Blaze {
     state: State;
     shader: shader.Shader;
-}
 
-class Blaze {
     constructor(app: HTMLCanvasElement) {
         this.state = {
             gl: app.getContext("webgl2")

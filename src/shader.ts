@@ -5,11 +5,9 @@ interface LoadPaths {
     fragment: string;
 }
 
-interface Shader {
-    state: State;
-}
-
 class Shader {
+    state: State;
+
     constructor(state: State) {
         this.state = state;
     }

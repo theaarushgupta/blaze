@@ -1,12 +1,10 @@
 import { State } from "./state.js";
 
-interface Buffer {
+class Buffer {
     state: State;
     position: number;
     resolution: WebGLUniformLocation;
-}
 
-class Buffer {
     constructor(state: State, program: WebGLProgram | null) {
         this.state = state
         if (program) {
